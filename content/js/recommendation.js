@@ -72,7 +72,7 @@ function formatUrl(url) {
 		return url;
 	else {
 		// check last character
-		if(url[url.length-1] === '/') {
+		if(url.last() === '/') {
 			return merge(url,'api/1.0/json/');
 		}
 		else {
@@ -89,6 +89,15 @@ function merge() {
 			output.push(arguments[i]);
 	}
 	return output.join('');
+}
+
+// the following func returnt the last character in a string
+String.prototype.last = function() {
+	if(this.length === 0) {
+		return '';
+	} else {
+		return this[this.length-1];	
+	}
 }
 
 // pull from recommendation engine
