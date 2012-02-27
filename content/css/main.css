@@ -1,0 +1,4 @@
+.url, .apiKey { width:300px;}
+.offline {background:url(../img/user_offline.gif) no-repeat 100%; width:50px;height:30px;}
+.online {background:url(../img/user_online.gif) no-repeat 100%; width:50px;height:30px;}
+.invalid {color:red;display: none;}

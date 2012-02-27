@@ -1,0 +1,33 @@
+version 0.4
+
+- added safety format url method (in case the json api path is not added)
+- added merge method to take care of string concatenation (poor man's stringbuilder)
+
+version 0.3
+
+- removed most of the configuration from the recommendation.js script
+- less technical to configure
+- remove easyrec helper code (already included in easyrec.js)
+- removed predefined text
+- build user interface for cofiguration entry (easyrec url, api key & tenant id)
+- added offline/online check
+- removed 3 action methods. replace with one method that does all
+- added a easyrec response output area (displays easyrec output)
+- added stylessheet and jquery (simple validation logic added)
+- made it simpler to use (interface centric... application does most of the work in the background)
+
+version 0.2 
+
+- added callback functionality
+- added verbose mode
+- added debug/prod mode
+- added jboss / local / dev mode
+- iterator for action types
+
+version 0.1
+
+- initial version
+- creating of 3 seperate methods to test 3 action types (buy, rate & view)
+- creation a recommendation script to store configuration for easyrec
+- storage of api keys, urls and pre-defined messages.
+- easy easyrec call methods

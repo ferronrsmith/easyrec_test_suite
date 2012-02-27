@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Testing EasyRec Connectivity</title>
+    <script type="text/javascript" src="content/js/jquery.js"></script>
+    <script type="text/javascript" src="content/js/easyrec.js"></script>
+    <script type="text/javascript" src="content/js/recommendation.js"></script>
+    <link type="text/css" rel="Stylesheet" href="content/css/main.css" />
+    <script type="text/javascript">
+
+      $(function(){
+
+        $('#btnEasy').click(function(){
+
+          var $apiUrl = $('#url').val();
+          var $apiKey = $('#apiKey').val();
+          var $tenant = $('#tenant').val();
+
+
+          if($apiUrl === '') {
+            $('#sUrl').show();
+          }
+          else if(isUrl($apiUrl) == false) {
+            $('#sUrlVal').show();
+          }
+          else if ($apiKey === '') {
+            $('#sKey').show();
+          }
+          else {
+            easyrecApiUrl = formatUrl($apiUrl);
+            apiKey = $apiKey;
+            
+            if($tenant === '')
+              tenantId = EASYREC_TENANT_MODE.dev;
+            else
+              tenantId = $tenant;
+
+            pullSampleItemsFromEngine();
+          }
+
+        });
+
+        $('input[type=text]').focus(function(){
+
+          //hide the error message
+          $('#sUrl,#sKey,#sUrlVal').hide();
+          //reset style
+          $('#status').removeClass('online').addClass('offline'); 
+
+        });
+
+      });
+
+      // http://209.59.190.33:8081/easyrec-web/api/1.0/json/
+      // 6491d97a8a0c3f7d07b1df5d83a83521 
+
+    </script>
+</head>
+<body>
+    <h1>EasyRec Test Suite</h1>
+    Enter Easyrec URL: &nbsp;<input id="url" type="text" class="url"/>
+    <span id="sUrl" class="invalid">This field cannot be null</span>
+    <span id="sUrlVal" class="invalid">Invalid Url</span>
+    <br />
+    <br />
+    Enter your API Key: <input id="apiKey" type="text" class="apiKey">
+    <span id="sKey" class="invalid">This field cannot be null</span>
+    <br />
+    <br />
+    Enter Tenant Name: <input id="tenant" type="text" class="tenant">
+    <br />
+    <br />
+    <input id="btnEasy" type="button" name="btnEasy" value="check easyrec">
+    <br />
+    <br />
+    <div id="status" class="offline"></div>
+    <div id="output"></div>
+
+</body>
+</html>
